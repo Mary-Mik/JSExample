@@ -6,12 +6,20 @@
     <link href="style.css" rel="stylesheet" />
 </head>
 <body>
-<h1>Title</h1>
+    
     <script>
         "use strickt"
         let n;
         n = prompt("insert n");
 
+        for (let i = 1; i < n; i++) {
+            for (let j = 1; j != i; j++) {
+                if (i % j == 0) {
+                    continue;
+                }
+                else alert(j);
+            }
+        }
     </script>
 </body>
 </html>
