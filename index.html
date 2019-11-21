@@ -3,15 +3,72 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link href="style.css" rel="stylesheet" />
-</head>
-<body>
-<h1>Title</h1>
+
+    <!-- добавим стили mocha для отображения результатов -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+
+    <!-- добавляем сам фреймворк mocha -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+
     <script>
-        "use strickt"
-        let n;
-        n = prompt("insert n");
+
+        // включаем режим тестирования в стиле BDD
+
+        mocha.setup('bdd');
 
     </script>
+
+    <!-- добавим chai -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+
+    <script>
+
+        // chai предоставляет большое количество функций. Объявим assert глобально
+
+        let assert = chai.assert;
+
+    </script>
+</head>
+<body>
+    <!-- реализация функции-->
+
+    <script>
+       "use strict"
+
+        let calculator = {
+            firstNumber: 0,
+            secondNumber: 0,
+            read() {
+                this.firstNumber = +prompt("Insert first number: ", 10);
+                this.secondNumber = +prompt("Insert secondNumber: ", 10);
+            },
+            sum() {
+                return this.firstNumber + this.secondNumber;
+            },
+            mul() {
+                return this.firstNumber * this.secondNumber;
+            },
+        }
+
+        calculator.read();
+        alert(calculator.sum());
+        alert(calculator.mul());
+    </script>
+
+    <!-- скрипт с тестами -->
+    <script src="tests.js"></script>
+ 
+       
+    <!-- элемент с id="mocha" будет содержать результаты тестов -->
+    <div id="mocha"></div>
+
+    <!-- запускаем тесты! -->
+    <script>
+        mocha.run();
+    </script>
+
 </body>
 </html>
